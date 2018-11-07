@@ -24,12 +24,43 @@ import javax.swing.text.BadLocationException;*/
         JFrame frame = new JFrame("Game"); 
         JPanel panel = new JPanel();
         JLabel label = new JLabel("Pong");  
-        panel.add(label); 
-        frame.add(panel);                 
+        JButton button = new JButton("Play Game");
+        JButton button2 = new JButton("Instructions");
+        JButton button3 = new JButton("History of pong");
+        JButton button4 = new JButton("Exit");
+        button.setVisible(true);
+        button2.setVisible(true);
+        button3.setVisible(true);
+        button4.setVisible(true);
+        //Add
+        panel.add(label);   
+        frame.add(panel);  
+        frame.add(button);	 
+        frame.add(button2);	 
+        frame.add(button3);	 
+        frame.add(button4);
+       //Position + Size
+        label.setSize(600,0);
+        button.setBounds(0, 900, 200, 200);
+        button2.setBounds(200, 200, 200, 200);     
+        button3.setBounds(300, 200, 200, 200);   
+        button4.setBounds(400, 200, 200, 200);   
+        //Add 
+        //jbutton.addActionListener(this);  	     	         
+        label.setFont(label.getFont().deriveFont(500.0f));
         label.setForeground(Color.WHITE);
-        panel.setBackground(Color.BLACK);         
+        panel.setBackground(Color.BLACK);     
+        button.setBackground(Color.WHITE);  
+        button.setForeground(Color.BLACK);  
+        button2.setBackground(Color.WHITE);  
+        button2.setForeground(Color.BLACK);  
+        button3.setBackground(Color.WHITE);  
+        button3.setForeground(Color.BLACK);  
+        button4.setBackground(Color.WHITE);  
+        button4.setForeground(Color.BLACK);        	    
         frame.setSize(1200,900);
         frame.setLocationRelativeTo(null);
+        frame.setLayout (new FlowLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
         
     
@@ -56,8 +87,9 @@ try {
 
                try {
                	
-               	      JOptionPane.showMessageDialog(null, name + " huh sounds sexy" +
-                                                   "\nWelcome " + name + " to my second year project. I hope you enjoy.");              
+               	      JOptionPane.showMessageDialog(null,name + " huh sounds sexy." +
+                                                   "\nWelcome " + name + " to my second year project. I hope you enjoy.","Welcome!" ,JOptionPane.INFORMATION_MESSAGE);              
+                   
                       frame.setVisible(true);    	
                    }   
                     	catch(Exception e) {
@@ -70,7 +102,7 @@ try {
 
             else if (name!=("Harry")) {
 
-                JOptionPane.showMessageDialog(null,  " Welcome " + name + " to my second year project. I hope you enjoy.");
+                JOptionPane.showMessageDialog(null,"Welcome " + name + " to my second year project. I hope you enjoy.","Welcome!" ,JOptionPane.INFORMATION_MESSAGE);
          
                 frame.setVisible(true);
             
@@ -88,7 +120,7 @@ try {
          
                //Prevents No point exception error    
              JOptionPane.showMessageDialog(frame,"Sorry but name " + name +
-         	                              " was invalid. " + "Please check all characters are letters and try again.","Try Again",JOptionPane.ERROR_MESSAGE);
+         	                              " was invalid. " + "Please check all characters are letters and try again.","Try Again!",JOptionPane.ERROR_MESSAGE);
              }    
            }
 
