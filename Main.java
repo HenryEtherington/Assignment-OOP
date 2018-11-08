@@ -1,103 +1,94 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import java.util.regex.Pattern;
-/*import javax.swing.text.AbstractDocument;
-import javax.swing.text.DocumentFilter;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;*/
 
-//public class Main extends JFrame {
-
-    //Main() {
-    
-   // new Main();
-    //}
-    
-   public class Main {
+   public class Main extends JFrame implements ActionListener/*,History*/ {
      
-    public static void main(String args[]) {
-        String name;
+     JButton play, instructions, history, exit;
+     
+    public static void main(String args[]){
+		Main win = new Main();
+		win.setVisible(false);
+	}
+     
+ 
+     public Main() {
+    
  
         //Creates the frame.
-          
-        //((AbstractDocument)textField.getDocument()).setDocumentFilter(new LimitDocumentFilter(15));	            
+          String name;            
+       // JTextField textfield = new TextField(10);
         JFrame frame = new JFrame("Game"); 
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("Pong");  
-        JButton button = new JButton("Play Game");
-        JButton button2 = new JButton("Instructions");
-        JButton button3 = new JButton("History of pong");
-        JButton button4 = new JButton("Exit");
-        button.setVisible(true);
-        button2.setVisible(true);
-        button3.setVisible(true);
-        button4.setVisible(true);
+        JLabel label = new JLabel("Pong");     
+        //Hard code button size. setSize();
+        play  = new JButton("            Play Game            ");
+        instructions = new JButton("            Instructions             ");
+        history = new JButton("            History of pong             ");
+        exit = new JButton("            Exit            ");
+        play.setVisible(true);
+        instructions.setVisible(true);
+        history.setVisible(true);
+        exit.setVisible(true);
         //Add
         panel.add(label);   
         frame.add(panel);  
-        frame.add(button);	 
-        frame.add(button2);	 
-        frame.add(button3);	 
-        frame.add(button4);
-       //Position + Size
-        label.setSize(600,0);
-        button.setBounds(0, 900, 200, 200);
-        button2.setBounds(200, 200, 200, 200);     
-        button3.setBounds(300, 200, 200, 200);   
-        button4.setBounds(400, 200, 200, 200);   
+       // frame.add(textfield);
+        play .addActionListener(this);
+        instructions.addActionListener(this);
+        history.addActionListener(this);
+        exit.addActionListener(this);
+        frame.add(play);	 
+        frame.add(instructions);	 
+        frame.add(history);	 
+        frame.add(exit);
+       //Size + Location     
+      //...
         //Add 
-        //jbutton.addActionListener(this);  	     	         
-        label.setFont(label.getFont().deriveFont(500.0f));
-        label.setForeground(Color.WHITE);
-        panel.setBackground(Color.BLACK);     
-        button.setBackground(Color.WHITE);  
-        button.setForeground(Color.BLACK);  
-        button2.setBackground(Color.WHITE);  
-        button2.setForeground(Color.BLACK);  
-        button3.setBackground(Color.WHITE);  
-        button3.setForeground(Color.BLACK);  
-        button4.setBackground(Color.WHITE);  
-        button4.setForeground(Color.BLACK);        	    
+     	/*	Container cPane = getContentPane();
+			cPane.setBackground(Color.BLACK);*/
+			         
+        label.setFont(label.getFont().deriveFont(450.0f));
+        label.setForeground(Color.BLACK);
+        //frame.setBackground(Color.BLACK);     
+        play.setBackground(Color.WHITE);  
+        play.setForeground(Color.BLACK);  
+        instructions.setBackground(Color.WHITE);  
+        instructions.setForeground(Color.BLACK);  
+        history.setBackground(Color.WHITE);  
+        history.setForeground(Color.BLACK);  
+        exit.setBackground(Color.WHITE);  
+        exit.setForeground(Color.BLACK);        	    
         frame.setSize(1200,900);
         frame.setLocationRelativeTo(null);
-        frame.setLayout (new FlowLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-        
-    
-
-        name = JOptionPane.showInputDialog("Welcome! \nPlease enter your name:");
-
-    
-     /*public void setJTextField() {
+        frame.setLayout(null);
+        frame.setLayout (new FlowLayout());   
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      
-        //Asks the user for a name input.
+        //Asks for user input (non-case sensitive);
+        name = JOptionPane.showInputDialog("Welcome! \nPlease enter your first name:");
         
-          JLabel label1 = new JLabel("Welcome! \nPlease enter your first name [non case sensitive].");
-          add(label1);
-          
-          JTextField textField = new JTextField(20); 
-          add(textField);
-          
-      }*/
+
 try {
 
   if (isFirstName(name)) {
         
+           //Easter egg - Undertale reference
             if (name.equals("Harry")) {
-
-               try {
+               
                	
                	      JOptionPane.showMessageDialog(null,name + " huh sounds sexy." +
                                                    "\nWelcome " + name + " to my second year project. I hope you enjoy.","Welcome!" ,JOptionPane.INFORMATION_MESSAGE);              
                    
                       frame.setVisible(true);    	
-                   }   
-                    	catch(Exception e) {
+                      
+                  /*  	catch(Exception e) {
    
                  //Prevents No point exception error
                  JOptionPane.showMessageDialog(frame,"Bye!","Come Back Soon",JOptionPane.INFORMATION_MESSAGE);          
                  
-               }
+               }*/
             }
 
             else if (name!=("Harry")) {
@@ -133,7 +124,6 @@ try {
 
 /*Used to get method Pattern
   https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
-
 Validates data contains letters.*/
 
     public static boolean isFirstName(String nme)
@@ -141,31 +131,37 @@ Validates data contains letters.*/
     {
         	
         	return Pattern.matches("[a-zA-z]+",nme);  
-    }
-    
-    /* public class LimitDocumentFilter extends DocumentFilter {
-
-      //https://stackoverflow.com/questions/10136794/limiting-the-number-of-characters-in-a-jtextfiel
-      
-        private int limit;
-
-        public LimitDocumentFilter(int limit) {
-            if (limit <= 0) {
-                throw new IllegalArgumentException("Limit can not be <= 0");
-            }
-            this.limit = limit;
-        }
-        
-          @Override
-        public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
-            int currentLength = fb.getDocument().getLength();
-            int overLimit = (currentLength + text.length()) - limit - length;
-            if (overLimit > 0) {
-                text = text.substring(0, text.length() - overLimit);
-            }
-            if (text.length() > 0) {
-                super.replace(fb, offset, length, text, attrs); 
-            }
-        }*/
-
      }
+     
+     
+  
+	public void actionPerformed(ActionEvent e) 
+  
+      {  
+			//Exits program when exit button is pressed.
+		        if(e.getSource() == play) {
+		        
+		        
+		        	 JOptionPane.showMessageDialog(null,"....","Play",JOptionPane.INFORMATION_MESSAGE);  
+		        	  
+		        }
+		        
+		        else if (e.getSource() == instructions) {
+		        	
+		        	 JOptionPane.showMessageDialog(null,"....","Instructions",JOptionPane.INFORMATION_MESSAGE);  
+		        	
+		        }
+		        
+		         else if (e.getSource() == history) {
+		         	
+		         	 //History.java
+		        }
+		        
+		        
+		        else
+		        	       System.exit(0);  
+    
+        } 
+   }
+        	
+ 
