@@ -1,10 +1,10 @@
-import javax.sql.CommonDataSource;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
 
 
-   public class Paddle2 extends JPanel implements ActionListener, PongUI {
+
+   public class Paddle2 extends JPanel implements ActionListener {
    	
    	
    	
@@ -34,16 +34,17 @@ import java.awt.event.*;
  
         repaint();
     }
-   		
-   	   public void paintComponent(Graphics g) {
 
+
+   	   public void paintComponent(Graphics g) {
+ 
         super.paintComponent(g);
 
         paddle2(g, x, 200, 1, 88);
 
     }
    		
-   		public static void main(String[] args) {
+   	/*	public static void main(String[] args) {
    		
    		Paddle2 paddle2 = new Paddle2();
    		JFrame frame = new JFrame("Paddle2");
@@ -55,6 +56,6 @@ import java.awt.event.*;
         //moving.timer.start();
   
 
-   		}
+   		} */
     }
    
