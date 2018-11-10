@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Moving extends JPanel implements ActionListener {
+public class Ball extends Paddle1{
 
     int x, y;
 
     Timer timer;
    
 
-    Moving() {
+    Ball() {
 //Initial Ball Position
         x = 250;
         y = 250;
@@ -35,28 +35,18 @@ public class Moving extends JPanel implements ActionListener {
 
     }
 
-     
+        
+    public void gui() {
+         	
+        Ball ball = new Ball();
+   		JFrame frame = new JFrame("Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(ball);
+        frame.setSize(500,500);
+        frame.setVisible(true);
+        ball.timer.start();   
 
-    public static void main(String[] args) {
-
-        JFrame f = new JFrame("Moving");
-
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        Moving m = new Moving();
-
-        f.add(m);
-
-        f.setSize(500,500);
-
-        f.setVisible(true);
-
-        m.timer.start();
-      
-
-    }
-    
-    
+      }
     //if (ball radius + distance from paddle radius)  less then or equal to (radius paddle) //Collision occurs
     //else // Collision does not occur
 
