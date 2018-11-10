@@ -137,8 +137,11 @@ Validates data contains letters.*/
 			   //Plays game when play button is pressed.
 		        if(e.getSource() == play) {
 		        
-		             //Return PongUI.java
-		        	 JOptionPane.showMessageDialog(null,"....","Play",JOptionPane.INFORMATION_MESSAGE);  
+		              //Return PongUI.java
+		        	//gui.setVisible(true);
+		        	
+		        Ball classObject = new Ball();
+   				classObject.gui(); 				
 		        	  
 		        }
 		        
