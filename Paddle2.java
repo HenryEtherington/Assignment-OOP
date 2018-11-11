@@ -30,7 +30,7 @@ import java.awt.event.*;
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        //timer = new Timer(10, this);
+      
   }
 
    	      public void actionPerformed(ActionEvent e) {
@@ -83,7 +83,6 @@ import java.awt.event.*;
    		
    		public void keyTyped(KeyEvent evt){}
    		public void keyReleased(KeyEvent evt){}
-   		
-   		
+  
    		
    } 		
