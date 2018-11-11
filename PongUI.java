@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 
-    public class PongUI  extends Ball {
+    public class PongUI  extends Paddle1 {
     	
         //https://www.youtube.com/watch?v=5okwKe6L1Tk
     
@@ -13,7 +13,6 @@ import javax.swing.JFrame;
    							
    	 public void gui() {
          	
-        //Ball ball = new Ball();
         Paddle2 pad = new Paddle2();
    		JFrame frame = new JFrame("Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
