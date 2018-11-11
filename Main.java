@@ -144,7 +144,7 @@ Validates data contains letters.*/
 		           		
               //Ball extends Paddle1 which extends Paddle2 which extends JPanel and both implement ActionListner
    			
-   			    
+   		
    				PongUI classObject = new PongUI();
    				classObject.gui(); 	
    					
