@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*; 
 
   //Abstarct method
-   public class Paddle1 extends Paddle2 implements ActionListener {
+   public abstract class Paddle1 extends Paddle2 implements ActionListener {
    	
    	
    	
@@ -23,7 +23,7 @@ import java.awt.event.*;
    Paddle1() {
 //Initial paddle position
         x = 0;
-        
+        y = 300;
         //timer = new Timer(10, this);
   }
 
@@ -38,7 +38,7 @@ import java.awt.event.*;
  
         super.paintComponent(g);
 
-        paddle1(g, x, 200, 1, 88);
+        paddle1(g, x, y, 1, 200);
 
     }
    		
@@ -55,10 +55,7 @@ import java.awt.event.*;
   
 
    		}*/ 
-   			
-  
-
-    	
+	
      
     }
    
