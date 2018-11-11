@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
      JButton play, instructions, history, exit;
 
     public static void main(String args[]){
-		Main win = new Main();
-		win.setVisible(false);
+		Main frame = new Main();
+		frame.setVisible(false);
 	}
      
  
@@ -115,8 +115,9 @@ try {
    
                  //Prevents No point exception error
                  JOptionPane.showMessageDialog(frame,"Bye!","Come Back Soon",JOptionPane.INFORMATION_MESSAGE);          
-      }
-    }
+       }
+     }
+    
 
 /*Used to get method Pattern
 https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
@@ -140,8 +141,11 @@ Validates data contains letters.*/
 		              //Return PongUI.java
 		        	//gui.setVisible(true);
 		        	
-		        Ball classObject = new Ball();
-   				classObject.gui(); 				
+		           		
+              //Ball extends Paddle1 which extends Paddle2 which extends JPanel and both implement ActionListner
+   			
+   				PongUI classObject = new PongUI();
+   				classObject.gui(); 					
 		        	  
 		        }
 		        
