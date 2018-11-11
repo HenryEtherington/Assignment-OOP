@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*; 
 
   //Abstarct method
-   public abstract class Paddle1 extends Paddle2 implements ActionListener {
+   public abstract class Paddle1 extends Ball  implements ActionListener {
    	
    	
    	
