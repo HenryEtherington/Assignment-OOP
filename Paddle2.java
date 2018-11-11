@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 
 
-   public class Paddle2 extends JPanel implements ActionListener, KeyListener {   	
+   public class Paddle2 extends Paddle1 implements ActionListener, KeyListener {   	
    	
    	
    	Timer t = new Timer (5,this);
