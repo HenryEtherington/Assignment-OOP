@@ -23,8 +23,8 @@ import java.awt.event.*;
 
    Paddle2() {
 //Initial paddle position
-        x = 480;
-        
+        x = 1100;
+        y = 300;
         //timer = new Timer(10, this);
   }
 
@@ -40,7 +40,7 @@ import java.awt.event.*;
  
         super.paintComponent(g);
 
-        paddle2(g, x, 200, 1, 88);
+        paddle2(g, x, y, 1, 200);
 
     }
    		
@@ -55,7 +55,8 @@ import java.awt.event.*;
         frame.setVisible(true);
         //moving.timer.start();
   
-
    		} */
     }
    
+ 
+ 		
