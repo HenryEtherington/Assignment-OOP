@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.regex.Pattern;
 
-   public class Main extends JFrame implements ActionListener,History,Instructions {
+   public class Main extends JFrame implements ActionListener, History, Instructions {
      
      JButton play, instructions, history, exit;
 
