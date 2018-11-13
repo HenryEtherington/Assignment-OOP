@@ -35,7 +35,10 @@ public class Ball extends JPanel implements ActionListener{
    
     }
     
-
+    
+  
+        
+//Double Buffer image;
 
     //if (ball radius + distance from paddle radius)  less then or equal to (radius paddle) //Collision occurs
     //else // Collision does not occur
