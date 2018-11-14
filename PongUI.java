@@ -9,14 +9,15 @@ import java.util.*;
    			
   //Ball extends Paddle1 which extends Paddle2 which extends JPanel and both implement ActionListner
    			
-   							
+   				
    	 public void gui() {
         
-         //  Timer timer;
+       
+        //  Timer timer;
         //Ball b = new Ball();
-       // timer = new Timer(10,this);
+        // timer = new Timer(10,this);
         //timer.start();	
-        Paddle2 pad = new Paddle2();
+        UserPad pad = new UserPad();
    		JFrame frame = new JFrame("Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(pad);
@@ -24,18 +25,10 @@ import java.util.*;
         frame.setSize(1200,900);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);    
-       //timer.start();
-       
-           Ball m = new Ball();
-
-        frame.add(m);
-
-
-        m.timer.start();
-   
+        //timer.start();
+        Ball b = new Ball();
+        frame.add(b);
+        b.timer.start();
 	
-      }
-   	
-   	
-   		
+      }	
     }
