@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
-
-
-
+import java.awt.image.*;
 
   //Abstarct method
-   public abstract class ComPad extends JPanel implements ActionListener {
+   public  abstract class ComPad extends Ball implements ActionListener {
    	
    	
    	public void paddle1(Graphics g, int xVel, int yVel, int width, int height) {
@@ -28,13 +26,23 @@ import java.awt.event.*;
         //timer = new Timer(10, this);
   }
 
+  
+     public class MyCanvas extends Canvas  {
+       
    	      public void actionPerformed(ActionEvent e) {
  //paddle moves up or down;
  
- 
-        repaint();
+         BufferStrategy bs = getBufferStrategy();
+        if (bs == null) {
+            createBufferStrategy(3);
+            return;
+        }
+        repaint();     
+        //bs.show();
+       
     }
-   		
+        }
+    	
    	   public void paintComponent(Graphics g) {
  
         super.paintComponent(g);
@@ -57,6 +65,6 @@ import java.awt.event.*;
 
    		}*/ 
 	
-       		
-   		
-   } 
+        		
+  }
+   

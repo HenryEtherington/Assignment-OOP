@@ -1,11 +1,10 @@
-
-      		
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
-import java.awt.image.*;
+import java.awt.image.*;   		
 
-   public class UserPad extends ComPad implements ActionListener, KeyListener {   	
+
+   public abstract class UserPad extends ComPad implements ActionListener, KeyListener {   	
    	
    	
    	Timer t = new Timer (5,this);
@@ -13,13 +12,9 @@ import java.awt.image.*;
     
      	public void userPad(Graphics g, int xVel, int yVel, int width, int height) {
    	
-   	/* BufferStrategy bs = getBufferStrategy();
-        if(bs == null)
-        {
-        	createBufferStrategy();
-        	return;
-        }*/
-   	
+  
+
+        
    	
    	//https://www.youtube.com/watch?v=ptqhnmP8FY0 Collision
    //	g = bs.getDrawGraphics();	
@@ -44,20 +39,30 @@ import java.awt.image.*;
       
   }
 		
+       public abstract class MyCanvas extends Canvas  {
+       
    	      public void actionPerformed(ActionEvent e) {
  //paddle moves up or down;
  
-        
-        repaint();
+         BufferStrategy bs = getBufferStrategy();
+        if (bs == null) {
+            createBufferStrategy(3);
+            return;
+        }
+        repaint();     
+        //bs.show();
+       
     }
+        }
 
 
    	   public void paintComponent(Graphics g) {
  
         super.paintComponent(g);
         userPad(g, x, y, 1, 200);
-
     }
+    
+ 
    		
    	/*	public static void main(String[] args) {
    		
@@ -106,8 +111,9 @@ import java.awt.image.*;
    		
    		public void keyTyped(KeyEvent evt){}
    		public void keyReleased(KeyEvent evt){}
+   
   
- 
+    
    } 		
 	
 
