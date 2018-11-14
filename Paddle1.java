@@ -2,6 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
 
+///////////////////////////////////
+
+/* FILE NAME CHANGED TO ComPad.java*/
+ 
+////////////////////////////////////
+
+
   //Abstarct method
    public abstract class Paddle1 extends JPanel implements ActionListener {
    	
