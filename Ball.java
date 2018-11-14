@@ -26,14 +26,14 @@ public class Ball extends JPanel implements ActionListener{
  //Ball Speed
        
         
-        	if(y <= 0)
+        	if(y <= 0 || y >=800 )
    				{
-   					x = -2;
-   					y = -2;
+   					x -= 2;
+   					y -= 2;
    				}
    			
    			else
-   				 x += 2;
+   		x += 2;
         y += 2;
    			
         repaint();
