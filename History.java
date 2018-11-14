@@ -1,3 +1,6 @@
+//History.java
+/*This code outputs text of the history of pong and displays the code
+ *as part of a toString() method in the Main.java program*/
 
 public interface History   {
 
