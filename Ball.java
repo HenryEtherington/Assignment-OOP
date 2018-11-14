@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.*;
 
-public class Ball extends JPanel implements ActionListener{
+public abstract class Ball extends JPanel implements ActionListener{
 
  
 
@@ -10,17 +11,18 @@ public class Ball extends JPanel implements ActionListener{
 
    Timer timer;
 
+ 
     Ball() {
  
  //Initial Ball Position
         x = 595;
         y = 445;
-        timer = new Timer (10,this);     
-    
+          
+      Timer timer = new Timer (10,this); 
        		 
-  }
-
-   
+   }
+  
+   public abstract class MyCanvas extends Canvas {
 
     public void actionPerformed(ActionEvent e) {
  //Ball Speed
@@ -35,9 +37,21 @@ public class Ball extends JPanel implements ActionListener{
    			else
    		x += 2;
         y += 2;
+        
+          BufferStrategy bs = getBufferStrategy();
+        if (bs == null) {
+            createBufferStrategy(3);
+            return;
+        }
+        repaint();     
+        //bs.show();
    			
-        repaint();
-    }
+       // repaint();
+    }     
+     
+   }    
+   	
+   	
      
 //Ball Size
     public void paintComponent(Graphics g) {
