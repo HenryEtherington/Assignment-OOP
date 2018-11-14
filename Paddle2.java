@@ -2,20 +2,30 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*; 
-
-
-
+import java.awt.image.*;
 
    public class Paddle2 extends Paddle1 implements ActionListener, KeyListener {   	
    	
    	
    	Timer t = new Timer (5,this);
-    int x = 1100, y = 300 , velX = 0, velY = 0;
+    int x = 1100, y = 300 ;
     
      	public void paddle2(Graphics g, int xVel, int yVel, int width, int height) {
-   		
+   	
+   	/* BufferStrategy bs = getBufferStrategy();
+        if(bs == null)
+        {
+        	createBufferStrategy();
+        	return;
+        }*/
+   	
+   	
+   	//https://www.youtube.com/watch?v=ptqhnmP8FY0 Collision
+   //	g = bs.getDrawGraphics();	
    	g.drawRect(xVel, yVel, width, height);
-   		
+   	g.dispose();
+   //	bs.show();
+   	
    	}
 
     //Timer timer;
@@ -32,12 +42,11 @@ import java.awt.event.*;
         setFocusTraversalKeysEnabled(false);
       
   }
-
+		
    	      public void actionPerformed(ActionEvent e) {
  //paddle moves up or down;
  
-        x = x += velX;
-        y = y += velY;
+        
         repaint();
     }
 
@@ -62,6 +71,9 @@ import java.awt.event.*;
   
    		} */
    		
+   		//https://www.youtube.com/watch?v=ptqhnmP8FY0  		
+   		//Collision detection
+   		
    		public void keyPressed (KeyEvent evt)
    		{
    			int i = evt.getKeyCode();
@@ -69,20 +81,30 @@ import java.awt.event.*;
    			if(i == KeyEvent.VK_UP)
    				
    			{
-   				velY = -2;
-   				velX = 0;
+   				if(y <= 0)
+   				{
+   					y = 0;
+   				}
+   			
+   			else
+   				 y += -5;
    			}
    			
    			else if(i == KeyEvent.VK_DOWN)
    				
    			{
-   			    velY = 2;
-   				velX = 0;
+   			    if(y >= 660)
+   			    {
+   			    		y = 660;
+   			    }
+   			    
+   			    else
+   			    	 y += +5;
    			}
    		}
    		
    		public void keyTyped(KeyEvent evt){}
    		public void keyReleased(KeyEvent evt){}
   
-   		
+ 
    } 		
