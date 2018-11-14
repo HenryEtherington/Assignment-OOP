@@ -24,8 +24,18 @@ public class Ball extends JPanel implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
  //Ball Speed
-        x += 2;
+       
+        
+        	if(y <= 0)
+   				{
+   					x = -2;
+   					y = -2;
+   				}
+   			
+   			else
+   				 x += 2;
         y += 2;
+   			
         repaint();
     }
      
@@ -40,13 +50,7 @@ public class Ball extends JPanel implements ActionListener{
     
 
 
-   public static void main(String[] args) {
-
-
-
-      
-
-    }
+ 
     
     
 //Double Buffer image;
