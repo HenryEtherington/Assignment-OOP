@@ -1,58 +1,58 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*; 
+import java.awt.event.*;
 import java.awt.image.*;
 
-  //Abstarct method
-   public  abstract class ComPad extends Ball implements ActionListener {
-   	
-   	
-   	public void paddle1(Graphics g, int xVel, int yVel, int width, int height) {
-   		
-   	g.drawRect(xVel, yVel, width, height);
-   		
-   	}
-   	
+//Abstract method
+public  class ComPad extends Ball implements ActionListener {
+
+
+    public void ComPad(Graphics g, int xVel, int yVel, int width, int height) {
+
+        g.drawRect(xVel, yVel, width, height);
+
+    }
+
     int x = 1100, y = 300;
 
     //Timer timer;
-   //lock area gui
-   //if off screen error!
+    //lock area gui
+    //if off screen error!
 //Reference Me
 
-   ComPad() {
+    ComPad() {
 //Initial paddle position
-     
-        //timer = new Timer(10, this);
-  }
 
-  
-     public class MyCanvas extends Canvas  {
-       
-   	      public void actionPerformed(ActionEvent e) {
- //paddle moves up or down;
- 
-         BufferStrategy bs = getBufferStrategy();
-        if (bs == null) {
-            createBufferStrategy(3);
-            return;
-        }
-        repaint();     
-        //bs.show();
-       
+        //timer = new Timer(10, this);
     }
-        }
-    	
-   	   public void paintComponent(Graphics g) {
- 
+
+
+  //  public class MyCanvas extends Canvas  {
+
+        public void actionPerformed(ActionEvent e) {
+            //paddle moves up or down;
+
+         /*   BufferStrategy bs = getBufferStrategy();
+            if (bs == null) {
+                createBufferStrategy(3);
+                return;
+            }*/
+            repaint();
+            //bs.show();
+
+      //  }
+    }
+
+    public void paintComponent(Graphics g) {
+
         super.paintComponent(g);
 
-        paddle1(g, x, y, 1, 200);
+        ComPad(g, x, y, 1, 200);
 
     }
-   		
+
    	/*	public static void main(String[] args) {
-   		
+
    		Paddle1 paddle1 = new Paddle1();
    		JFrame frame = new JFrame("Paddle1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,10 +61,9 @@ import java.awt.image.*;
         frame.setSize(500,500);
         frame.setVisible(true);
         //moving.timer.start();
-  
 
-   		}*/ 
-	
-        		
-  }
-   
+
+   		}*/
+
+
+}
