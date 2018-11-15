@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
 
 public  class UserPad extends Net implements ActionListener, KeyListener {
 

@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.util.*;
-public  class PongUI   extends JPanel {
+public  class PongUI extends UserPad   {
 
     //How to use multiple class in java
     //https://www.youtube.com/watch?v=5okwKe6L1Tk
