@@ -11,6 +11,7 @@ public  class Ball extends Net implements ActionListener {
 
 
     Timer timer = new Timer(10, this);
+     //timer.start();
 
     Ball() {
 
@@ -26,27 +27,33 @@ public  class Ball extends Net implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         //Ball Speed
-
-
-        if (y <= 0 || y >= 800) {
+  if (y <= 0 || y >= 800) {
             x -= 2;
             y -= 2;
-        } else
-            x += 2;
+        }
+        
+         else
+        
+        x += 2;
         y += 2;
-
+        
+     repaint();
+    }
+    
+    
+  
          /*   BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
                 return;
             }*/
-        repaint();
+   
         //bs.show();
 
         // repaint();
         //  }
 
-    }
+   // }
 
 
     //Ball Size
@@ -59,8 +66,26 @@ public  class Ball extends Net implements ActionListener {
 
 
 //Double Buffer image;
+  
+ /* public static void main (String[] args)
+  {
+  
+        JFrame f = new JFrame("Moving");
 
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        Ball b = new Ball();
+
+        f.add(b);
+
+        f.setSize(1200,900);
+
+        f.setVisible(true);
+
+        b.timer.start();
+      
+
+    }*/
 
 
 }

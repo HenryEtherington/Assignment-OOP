@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public  class UserPad extends Net implements ActionListener, KeyListener {
+public  class UserPad extends JPanel implements ActionListener, KeyListener {
 
 
     Timer t = new Timer (5,this);
-    int x = 0, y = 300 ;
+    int x = 7, y = 300 ;
 
     public void userPad(Graphics g, int xVel, int yVel, int width, int height) {
 

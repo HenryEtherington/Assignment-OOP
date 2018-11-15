@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 //Abstract method
-public  class ComPad extends Ball implements ActionListener {
+public  class ComPad extends JPanel implements ActionListener {
 
 
     public void ComPad(Graphics g, int xVel, int yVel, int width, int height) {
