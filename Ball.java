@@ -4,13 +4,13 @@ import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.Timer;
 
-public  class Ball extends JPanel implements ActionListener {
+public  class Ball extends ComPad implements ActionListener {
 
 
     int x, y;
 
-    Timer timer;
 
+    Timer timer = new Timer(10, this);
 
     Ball() {
 
@@ -18,7 +18,7 @@ public  class Ball extends JPanel implements ActionListener {
         x = 595;
         y = 445;
 
-        Timer timer = new Timer(10, this);
+
 
     }
 
@@ -59,6 +59,7 @@ public  class Ball extends JPanel implements ActionListener {
 
 
 //Double Buffer image;
+
 
 
 

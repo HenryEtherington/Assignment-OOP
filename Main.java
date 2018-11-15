@@ -85,10 +85,8 @@ public class Main extends JFrame implements ActionListener, History, Instruction
                     frame.setVisible(true);
 
                   /*  	catch(Exception e) {
-
                  //Prevents No point exception error
                  JOptionPane.showMessageDialog(frame,"Bye!","Come Back Soon",JOptionPane.INFORMATION_MESSAGE);
-
                }*/
                 }
 

@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 
-public  class UserPad extends ComPad implements ActionListener, KeyListener {
+public  class UserPad extends Net implements ActionListener, KeyListener {
 
 
     Timer t = new Timer (5,this);
@@ -28,8 +28,9 @@ public  class UserPad extends ComPad implements ActionListener, KeyListener {
     //if off screen error!
 //Reference Me
 
-    UserPad() {
+  UserPad() {
 //Initial paddle position
+
 
         t.start();
         addKeyListener(this);
@@ -38,18 +39,18 @@ public  class UserPad extends ComPad implements ActionListener, KeyListener {
 
     }
 
-   // public abstract class MyCanvas extends Canvas  {
+    // public abstract class MyCanvas extends Canvas  {
 
-        public void actionPerformed(ActionEvent e) {
-            //paddle moves up or down;
+    public void actionPerformed(ActionEvent e) {
+        //paddle moves up or down;
 
           /*  BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
                 return;
             }*/
-            repaint();
-            //bs.show();
+        repaint();
+        //bs.show();
 
         //}
     }
@@ -64,7 +65,6 @@ public  class UserPad extends ComPad implements ActionListener, KeyListener {
 
 
    	/*	public static void main(String[] args) {
-
    		Paddle2 paddle2 = new Paddle2();
    		JFrame frame = new JFrame("Paddle2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +73,6 @@ public  class UserPad extends ComPad implements ActionListener, KeyListener {
         frame.setSize(500,500);
         frame.setVisible(true);
         //moving.timer.start();
-
    		} */
 
     //https://www.youtube.com/watch?v=ptqhnmP8FY0

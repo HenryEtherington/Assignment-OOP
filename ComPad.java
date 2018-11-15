@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 //Abstract method
-public  class ComPad extends Ball implements ActionListener {
+public  class ComPad  extends UserPad implements ActionListener {
 
 
     public void ComPad(Graphics g, int xVel, int yVel, int width, int height) {
@@ -27,20 +27,20 @@ public  class ComPad extends Ball implements ActionListener {
     }
 
 
-  //  public class MyCanvas extends Canvas  {
+    //  public class MyCanvas extends Canvas  {
 
-        public void actionPerformed(ActionEvent e) {
-            //paddle moves up or down;
+    public void actionPerformed(ActionEvent e) {
+        //paddle moves up or down;
 
          /*   BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
                 return;
             }*/
-            repaint();
-            //bs.show();
+        repaint();
+        //bs.show();
 
-      //  }
+        //  }
     }
 
     public void paintComponent(Graphics g) {
@@ -52,7 +52,6 @@ public  class ComPad extends Ball implements ActionListener {
     }
 
    	/*	public static void main(String[] args) {
-
    		Paddle1 paddle1 = new Paddle1();
    		JFrame frame = new JFrame("Paddle1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,8 +60,6 @@ public  class ComPad extends Ball implements ActionListener {
         frame.setSize(500,500);
         frame.setVisible(true);
         //moving.timer.start();
-
-
    		}*/
 
 
