@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.Timer;
 
-public  class Ball extends UserPad implements ActionListener {
+public  class Ball extends Net implements ActionListener {
 
 
     int x, y;

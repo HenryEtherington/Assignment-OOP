@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 //Abstract method
-public  class ComPad extends Net implements ActionListener {
+public  class ComPad extends Ball implements ActionListener {
 
 
     public void ComPad(Graphics g, int xVel, int yVel, int width, int height) {
@@ -13,7 +13,7 @@ public  class ComPad extends Net implements ActionListener {
 
     }
 
-    int x = 1100, y = 300;
+    int x = 1175, y = 300;
 
     //Timer timer;
     //lock area gui
