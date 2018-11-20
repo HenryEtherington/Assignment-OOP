@@ -73,6 +73,14 @@ public  class Ball extends JPanel implements ActionListener {
 
 //while(i<7 && j<7)
 
+/* 
+ 
+ Ball ball =  = b.bounds();
+ Userpad pad = p.bounds();
+if (ball.intersects(pad.bounds();
+
+*/
+
          /*   BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
@@ -122,3 +130,4 @@ public  class Ball extends JPanel implements ActionListener {
 
     }
 }
+
