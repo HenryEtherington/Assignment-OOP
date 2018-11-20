@@ -2,17 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
-import javax.swing.Timer;
+//import javax.util.Timer;
 
-public  class Ball extends Net implements ActionListener {
-
-
-    int x, y;
-
+public  class Ball extends JPanel implements ActionListener {
 
     Timer timer = new Timer(10, this);
-     //timer.start();
+    int x, y, dx = 2, dy = 2;
 
+    JFrame frame = new JFrame("Game");
     Ball() {
 
         //Initial Ball Position
@@ -20,40 +17,74 @@ public  class Ball extends Net implements ActionListener {
         y = 445;
 
 
-
+        //Ball ball = new Ball();
+       // frame.add(ball);
     }
 
     // public abstract class MyCanvas extends Canvas {
 
     public void actionPerformed(ActionEvent e) {
-        //Ball Speed
-  if (y <= 0 || y >= 800) {
-            x -= 2;
-            y -= 2;
+        //Ball Speed + Collision with screen;
+    
+       	 //do{
+             int j=0;	 
+       	  if(x == 0) {   
+      	
+      	int i=0;  
+       i++; 
+       	
+       //System.out.println(i);
+      
+      }
+      
+     /* if(j == 1)
+      {
+      	System.exit(0);
+      }*/
+      
+     
+    
+       
+       if( x == 100) {
+ 
+       	j++; }
+       	
+   
+      
+        if (x < 0) {
+            dx = 2;
         }
         
-         else
-        
-        x += 2;
-        y += 2;
-        
-     repaint();
+       if(x>=getWidth())
+           dx = -2;
+
+       if(y < 0)
+           dy = 2;
+
+       if(y>=getHeight())
+           dy = -2;
+
+       x += dx;
+       y += dy;
+
+        repaint();
     }
-    
-    
-  
+
+
+//while(i<7 && j<7)
+
          /*   BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
                 return;
             }*/
-   
-        //bs.show();
 
-        // repaint();
-        //  }
+    //bs.show();
 
-   // }
+    // repaint();
+    //  }
+
+    // }
 
 
     //Ball Size
@@ -66,26 +97,28 @@ public  class Ball extends Net implements ActionListener {
 
 
 //Double Buffer image;
-  
- /* public static void main (String[] args)
-  {
-  
-        JFrame f = new JFrame("Moving");
 
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    // timer.start();
+
+ 
+    
+
+
+    public static void main(String[] args) {
+
+        //UserPad p = new UserPad();
         Ball b = new Ball();
 
-        f.add(b);
-
-        f.setSize(1200,900);
-
-        f.setVisible(true);
-
+    JFrame frame = new JFrame("Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // frame.add(p);
+        frame.add(b);
+        frame.setSize(1200, 900);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        //timer.start();
         b.timer.start();
-      
 
-    }*/
-
-
+    }
 }
