@@ -1,114 +1,74 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import javax.swing.JPanel;
 
-public  class UserPad extends JPanel implements ActionListener, KeyListener {
+class UserPad extends JPanel implements MouseMotionListener {
+//The Paddle class has a length and a position
+
+    private int xpos;
+    private int ypos;
+    int widtH;
+    int heighT;
 
 
-    Timer t = new Timer (5,this);
-    int x = 7, y = 300 ;
+    public UserPad(int xpos, int ypos, int widtH, int heighT) {
+        this.xpos = xpos;
+        this.ypos = ypos;
+        this.widtH = widtH;
+        this.heighT = heighT;
 
-    public void userPad(Graphics g, int xVel, int yVel, int width, int height) {
-
-
-
-
-
-        //https://www.youtube.com/watch?v=ptqhnmP8FY0 Collision
-        //	g = bs.getDrawGraphics();
-        g.drawRect(xVel, yVel, width, height);
-        g.dispose();
-        //	bs.show();
-
+        addMouseMotionListener(this);
     }
 
-    //Timer timer;
-    //lock area gui
-    //if off screen error!
-//Reference Me
+//The draw method of the Paddle class takes a Graphics object parameter and draws a filled
 
-  UserPad() {
-//Initial paddle position
-
-
-        t.start();
-        addKeyListener(this);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(false);
-
-    }
-
-    // public abstract class MyCanvas extends Canvas  {
-
-    public void actionPerformed(ActionEvent e) {
-        //paddle moves up or down;
-
-          /*  BufferStrategy bs = getBufferStrategy();
-            if (bs == null) {
-                createBufferStrategy(3);
-                return;
-            }*/
-        repaint();
-        //bs.show();
-
-        //}
-    }
-
-
-    public void paintComponent(Graphics g) {
-
+    public void paint(Graphics g) {
         super.paintComponent(g);
-        userPad(g, x, y, 1, 200);
+        g.fillRect(xpos, ypos, widtH, heighT);
+
     }
+    boolean collision(int ballxpos, int ballypos, int ballwidth, int ballheight) {
 
-
-
-   	/*	public static void main(String[] args) {
-   		Paddle2 paddle2 = new Paddle2();
-   		JFrame frame = new JFrame("Paddle2");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      //  Paddle1 moving = new Paddle2();
-        frame.add(paddle2);
-        frame.setSize(500,500);
-        frame.setVisible(true);
-        //moving.timer.start();
-   		} */
-
-    //https://www.youtube.com/watch?v=ptqhnmP8FY0
-    //Collision detection
-
-    public void keyPressed (KeyEvent evt)
-    {
-        int i = evt.getKeyCode();
-
-        if(i == KeyEvent.VK_UP)
-
-        {
-            if(y <= 0)
-            {
-                y = 0;
-            }
-
-            else
-                y += -5;
+        if ((ballxpos + ballwidth < xpos || ballxpos > xpos + widtH)
+                || (ballypos + ballheight < ypos || ballypos > ypos + heighT)) {
+            return false;
+        } else {
+            return true;
         }
 
-        else if(i == KeyEvent.VK_DOWN)
+    }
+    /*
+    * To support the controller, the Paddle class
+    must have methods which return the position of the top, bottom, left, and right edges of the this.
+    */
+    void setXpos(int x) {
+        xpos = x;
 
-        {
-            if(y >= 660)
-            {
-                y = 660;
-            }
-
-            else
-                y += +5;
-        }
     }
 
-    public void keyTyped(KeyEvent evt){}
-    public void keyReleased(KeyEvent evt){}
+    void setWidth(int widtH) {
+        this.widtH = widtH;
 
+    }
 
+    int getXpos() {
+        return xpos;
 
+    }
+
+    int getWidtH() {
+        return widtH;
+
+    }
+
+    public void mouseDragged(MouseEvent e) {
+// Get the new location and repaint the screen
+
+        xpos = e.getX();
+        repaint();
+    }
+
+    public void mouseMoved(MouseEvent e) {
+    }
 }

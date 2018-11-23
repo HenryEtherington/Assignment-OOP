@@ -1,19 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
 
 //Abstract method
-public  class ComPad extends JPanel implements ActionListener {
+public  class ComPad extends JPanel  implements KeyListener   {
+
 
 
     public void ComPad(Graphics g, int xVel, int yVel, int width, int height) {
 
         g.drawRect(xVel, yVel, width, height);
-
+        g.dispose();
     }
 
-    int x = 1175, y = 300;
+    int x = 600, y = 0;
+    Timer timer = new Timer(10, new ComPad.TimerListener());
 
     //Timer timer;
     //lock area gui
@@ -23,11 +24,19 @@ public  class ComPad extends JPanel implements ActionListener {
     ComPad() {
 //Initial paddle position
 
+        timer.start();
+        addKeyListener(this);
+        setFocusable(true);
+        setFocusTraversalKeysEnabled(false);
+
         //timer = new Timer(10, this);
     }
 
 
     //  public class MyCanvas extends Canvas  {
+    private class TimerListener implements ActionListener {
+
+        // Handle the action event
 
     public void actionPerformed(ActionEvent e) {
         //paddle moves up or down;
@@ -38,16 +47,19 @@ public  class ComPad extends JPanel implements ActionListener {
                 return;
             }*/
         repaint();
-        //bs.show();
+        //bs.show(); }
 
-        //  }
+         }
     }
 
     public void paintComponent(Graphics g) {
 
-        super.paintComponent(g);
 
-        ComPad(g, x, y, 1, 200);
+
+
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.fillRect( x, y, 200, 10);
 
     }
 
@@ -62,5 +74,30 @@ public  class ComPad extends JPanel implements ActionListener {
         //moving.timer.start();
    		}*/
 
+//https://www.youtube.com/watch?v=ptqhnmP8FY0
+    //Collision detection
+
+    public void keyPressed (KeyEvent evt) {
+        int i = evt.getKeyCode();
+
+
+        if (i == KeyEvent.VK_LEFT) {
+            if (x <= 0) {
+                x = 0;
+            } else
+                x += -5;
+        }
+        if (i == KeyEvent.VK_RIGHT) {
+            if (x >= 985) {
+                x = 985;
+            } else
+                x += +5;
+        }
+
+    }
+    public void keyTyped(KeyEvent evt){}
+    public void keyReleased(KeyEvent evt){}
+
 
 }
+
