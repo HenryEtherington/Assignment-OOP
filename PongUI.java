@@ -1,29 +1,20 @@
+//PongUI.java
+/*Creates frame from which the game is playable
+ * @author Henry Etherington */
+
 import javax.swing.*;
-import java.util.*;
-public  class PongUI  {
 
-    //How to use multiple class in java
-    //https://www.youtube.com/watch?v=5okwKe6L1Tk
+public class PongUI extends JPanel {
 
-
-    //Ball extends Paddle1 which extends Paddle2 which extends JPanel and both implement ActionListner
+//Creates JFrame for game pong and also sizes and places the gui in the center of the screen.
 
 
-    public void gui() {
+    public PongUI(int h, int w) {
 
+        JFrame frm = new JFrame("Game");
+        frm.setSize(h, w);
+        frm.setLocationRelativeTo(null);
 
-       
-        //UserPad p = new UserPad();
-        Ball b = new Ball();
-        JFrame frame = new JFrame("Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.add(p);
-        frame.add(b);
-        frame.setSize(1200, 900);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        //timer.start();
-        b.timer.start();
-       
+      }
     }
-}
+
