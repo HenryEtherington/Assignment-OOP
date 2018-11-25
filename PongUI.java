@@ -1,6 +1,6 @@
 //PongUI.java
-/*Creates frame from which the game is playable
- * @author Henry Etherington */
+/*Creates frame from which the game is playable.
+@author Henry Etherington */
 
 import javax.swing.*;
 
@@ -10,11 +10,10 @@ public class PongUI extends JPanel {
 
 
     public PongUI(int h, int w) {
-
+          //Instantiable class
         JFrame frm = new JFrame("Game");
         frm.setSize(h, w);
         frm.setLocationRelativeTo(null);
-
       }
     }
 

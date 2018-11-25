@@ -1,7 +1,7 @@
 //Instructions.java
 /*This code outputs text of the instructions of pong and displays the code
- *as part of a toString() method in the Main.java program
- * @author Henry Etherington*/
+as part of a toString() method in the Main.java program.
+@author Henry Etherington*/
 
 public interface Instructions   {
 

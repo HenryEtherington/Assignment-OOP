@@ -1,14 +1,17 @@
 //Ball.java
-/*Allows ball to appear in game
-* @author Henry Etherington*/
+/*Allows ball to appear in game and provides collision between ball and screen.
+@author Henry Etherington*/
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//Subclass Ball extends Superclass Game.
 public  class Ball extends Game  implements Winner{
 
     public int x = 595, y = 445, dx = 3, dy = 3, scoreL = 0, scoreR = 0, delay = 10;
+   // public Ball ball = new Ball();
+    //public UserPad userPad = new UserPad();
     Timer timer = new Timer(10, new TimerListener());
 
     Ball() {
@@ -35,6 +38,7 @@ public  class Ball extends Game  implements Winner{
 
     public void paintComponent(Graphics g) {
 
+        //Draw ball.
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillOval(x, y, 10, 10);
@@ -49,7 +53,7 @@ public  class Ball extends Game  implements Winner{
         g.setFont(new Font("serif",Font.ITALIC,15));
         g.drawString("Score: " + scoreR,1120,30);
 
-          //Ball collision with screen and speed.
+        //Ball collision with screen and speed.
         if (x < 0)
             dx = 3;
 
@@ -64,7 +68,7 @@ public  class Ball extends Game  implements Winner{
         x += dx;
         y += dy;
 
-        //Adds +1 to score counter.
+          //Adds +1 to score counter at the top left of the screen.
         if(y > 850) {
             scoreL++;
         }
@@ -74,32 +78,26 @@ public  class Ball extends Game  implements Winner{
         }
 
         if( scoreL > 6 || scoreR > 6) {
-         //fme.setVisible(false);
-         //timer.stop();
             // JOptionPane.showMessageDialog(null,winnerText.toString(),"Congratulations!",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
     }
 
-/*    private boolean collision() {
+ //UNUSED CODE FOR COLLISION. Java Game Tutorial - Pong 07-01: Collision Detection
+ // https://www.youtube.com/watch?v=GpM8yvDP21o
+     /* public void collision(UserPad userPad) {
 
-        return PongUI.UserPad.getBounds().intersects(getBounds());
-    }*/
+          if(this.x > userPad.getXpos() && this.x < userPad.getXpos() + userPad.getWidtH())
+          {
+             if (this.y > userPad.getY() && this.y < userPad.getHeighT()) {
 
-
-  /*  public void collision(UserPad userPad)
-    {
-
-        if(this.x > userPad.getX() && this.x < userPad.getX() + userPad.getWidth())
-        {
-           if(this.y > userPad.getY() && this.y < userPad.getY() + userPad.getHeight())
-           {
-               //Collision
-               System.exit(0);
-           }
-
+                 //Ball collided with userPad.
+                 dx = 3;
+                 dy = 3;
+            }
+          }
         }*/
-    }
+      }
 
 
 

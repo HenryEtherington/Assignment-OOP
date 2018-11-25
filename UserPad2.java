@@ -1,16 +1,14 @@
 //UserPa2.java
-/*Allows top user paddle to appear in game
-* @author Henry Etherington*/
+/*Allows top user paddle to appear in game.
+@author Henry Etherington*/
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-//Abstract method
+//Subclass UserPad2 extends Superclass JPanel.
 public  class UserPad2 extends JPanel  implements KeyListener   {
 
-/*Collision detection
-https://www.youtube.com/watch?v=yge4GBkQsvw*/
 
     public void UserPad2(Graphics g, int xVel, int yVel, int width, int height) {
 
@@ -19,6 +17,7 @@ https://www.youtube.com/watch?v=yge4GBkQsvw*/
     }
 
     private int x, y, widTH, heigHT;
+    //Instantiable class
     Timer timer = new Timer(10, new UserPad2.TimerListener());
 
 
@@ -37,7 +36,6 @@ https://www.youtube.com/watch?v=yge4GBkQsvw*/
 
     //  public class MyCanvas extends Canvas  {
     private class TimerListener implements ActionListener {
-
         // Handle the action event
 
         public void actionPerformed(ActionEvent e) {
@@ -52,12 +50,11 @@ https://www.youtube.com/watch?v=yge4GBkQsvw*/
             //collision();
             repaint();
             //bs.show(); }
-
         }
     }
 
+      //Draw paddle at the top right of the screen.
     public void paintComponent(Graphics g) {
-
 
         super.paintComponent(g);
         g.setColor(Color.BLACK);
@@ -65,20 +62,10 @@ https://www.youtube.com/watch?v=yge4GBkQsvw*/
 
         //if(collision)
          //   g.drawString("Collision",350,150);
-
     }
 
 
-    boolean collision(int ballxpos, int ballypos, int ballwidth, int ballheight) {
-
-        if ((ballxpos + ballwidth < x || ballxpos > x + widTH)
-                || (ballypos + ballheight < y || ballypos > y + heigHT)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-     //Collision detection
+     //Key events.
     //https://www.youtube.com/watch?v=ptqhnmP8FY0
 
     public void keyPressed (KeyEvent evt) {
@@ -102,16 +89,4 @@ https://www.youtube.com/watch?v=yge4GBkQsvw*/
     public void keyTyped(KeyEvent evt){}
     public void keyReleased(KeyEvent evt){}
 
-   /* public void collision() {
-
-        Ball b = new  ball.bounds();
-        ComPad c = new cPad.bounds();
-
-        if(b.intersects(c))
-            collision = true;
-
-        else
-            collision = false;
-
-    }*/
 }

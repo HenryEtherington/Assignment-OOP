@@ -29,7 +29,7 @@ public class Main extends JPanel implements ActionListener, History, Instruction
         frm.setVisible(false);
     }
 
- //JTextField limit attempt
+    //UNUSED CODE FOR limiting the number of characters in a JTextField
 
 /*private int limit;
     JTextFieldLimit(int limit) {
@@ -57,7 +57,7 @@ public class Main extends JPanel implements ActionListener, History, Instruction
          // JTextField textfield = new JTextField(10);
          // textfield.setDocument(new JTextFieldLimit(10));
 
-          //Creates the frames and labels.
+          //Creates the frames and labels and instantiable classes.
         JFrame frame = new JFrame("Game");
         JPanel panel = new JPanel();
         JLabel label = new JLabel("Pong");
@@ -197,15 +197,17 @@ Validates data contains letters.*/
           //Shows instructions when instruction button is pressed.
         else if (e.getSource() == instructions) {
               //Example of interface.
-            JOptionPane.showMessageDialog(null,instructionsText.toString(),"Instructions",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,instructionsText,"Instructions",JOptionPane.INFORMATION_MESSAGE);
         }
 
           //Shows history when history button is pressed.
         else if (e.getSource() == history) {
+
               /*History of pong.
               https://en.wikipedia.org/wiki/Pong*/
+
                 //Example of interface.
-            JOptionPane.showMessageDialog(null,historyText.toString(),"History",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,historyText,"History",JOptionPane.INFORMATION_MESSAGE);
         }
 
         //Exits program when exit button is pressed and display leaving message. /Acts as a fail-safe.

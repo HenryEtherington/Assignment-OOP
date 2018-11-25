@@ -1,101 +1,67 @@
 //UserPad.java
-/*Allows bottom user paddle to appear in game*/
+/*Allows bottom user paddle to appear in game
+ @author Henry Etherington */
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-class UserPad extends UserPad2 implements MouseMotionListener {
+//Subclass UserPad extends Superclass JPanel.
+class UserPad extends JPanel implements MouseMotionListener {
+    // Handle the mouse event
+    private int xpos, ypos, widtH, heighT;
 
-    private int xpos, ypos, widtH,heighT;
+    public UserPad(int xpos, int ypos, int widtH, int heighT) {
 
-    public UserPad(int x, int y, int widtH, int heighT) {
-
-          //Initial bottom paddle position
-        this.xpos = x;
-        this.ypos = y;
+        this.xpos = xpos;
+        this.ypos = ypos;
         this.widtH = widtH;
         this.heighT = heighT;
         addMouseMotionListener(this);
     }
 
-//The draw method of the Paddle class takes a Graphics object parameter and draws a filled
+//Draw paddle at the bottom left of the screen.
 
     public void paint(Graphics g) {
         super.paintComponent(g);
         g.fillRect(xpos, ypos, widtH, heighT);
-       // g.setColor(Color.ORANGE);
-    }
-    boolean collision(int ballxpos, int ballypos, int ballwidth, int ballheight) {
-
-        if ((ballxpos + ballwidth < xpos || ballxpos > xpos + widtH)
-                || (ballypos + ballheight < ypos || ballypos > ypos + heighT)) {
-            return false;
-        }
-
-        else {
-            return true;
-        }
-
     }
 
-    /*
-        /*
-        * To support the controller, the Paddle class
-        must have methods which return the position of the top, bottom, left, and right edges of the this.
-        */
+    //Accessor and Mutator methods required for taking in and using data respectively.
     void setXpos(int x) {
         xpos = x;
-
     }
 
     void setWidth(int width) {
         this.widtH = width;
-
     }
 
-    int getXpos() {
+   public int getXpos() {
         return xpos;
-
     }
 
-    int getWidtH() {
+   public int getYpos() {
+        return ypos;
+    }
+
+    public int getWidtH() {
         return widtH;
-
     }
 
+    public int getHeighT() {
+        return heighT;
+    }
+
+    //Allows user to move buttom left paddle via input from mouse.
     public void mouseDragged(MouseEvent e) {
-// Get the new location and repaint the screen
-
-     /*   if(xpos >= 1000)
-        {
-
-
-            xpos = -e.getX();
-            //xpos = 1000;
-        }
-
-        else*/
-
-     //if(xpos > 0 && xpos <1500)
-
+          //Substantial processing element. //Allows user to drag mouse.
         xpos = e.getX();
         repaint();
     }
 
-
-    /*public Rectangle getBounds() {
-        return new Rectangle(xpos, ypos, WIDTH, HEIGHT);
-    }*/
-
     public void mouseMoved(MouseEvent e) {
-    }
-
-    public Rectangle getPaddleRect() {
-
-        return  new Rectangle(xpos,ypos,widtH,heighT) ;
-
-    }
-}
+      }
+  }
 
 
