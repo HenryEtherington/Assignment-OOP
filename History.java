@@ -1,10 +1,11 @@
 //History.java
 /*This code outputs text of the history of pong and displays the code
- *as part of a toString() method in the Main.java program*/
+ *as part of a toString() method in the Main.java program
+ * @author Henry Etherington*/
 
 public interface History   {
 
-    //History
+    //Brief history of pong in text.
 
     String historyText = "Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics." +
             "\nThe game was originally manufactured by Atari, which released it in 1972. Allan Alcorn created Pong as a training exercise" +

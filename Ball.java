@@ -1,34 +1,24 @@
+//Ball.java
+/*Allows ball to appear in game
+* @author Henry Etherington*/
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
-//import javax.util.Timer;
 
-public  class Ball extends Net {
+public  class Ball extends Game  implements Winner{
 
-    private int x, y, dx = 2, dy = 2, delay = 10;
+    public int x = 595, y = 445, dx = 3, dy = 3, scoreL = 0, scoreR = 0, delay = 10;
     Timer timer = new Timer(10, new TimerListener());
 
-
     Ball() {
-
-
-        //Initial Ball Position
-        x = 595;
-        y = 445;
-
         timer.start();
-
     }
 
-    private class TimerListener implements ActionListener {
-
+    public class TimerListener implements ActionListener {
         // Handle the action event
 
         public void actionPerformed(ActionEvent e) {
-
-
-
             repaint();
         }
     }
@@ -38,88 +28,78 @@ public  class Ball extends Net {
      BufferStrategy bs = getBufferStrategy();
             if (bs == null) {
                 createBufferStrategy(3);
-                return;
             }*/
 
-    //bs.show();
-
-    // repaint();
-    //  } */
-
-
-/* CODE FOR SCORE COUNTER
-
- while(i<7 && j<7)
-
- Ball ball =  = b.bounds();
- Userpad pad = p.bounds();
-if (ball.intersects(pad.bounds();
-
+    /*bs.show();
      } */
 
-
-    //Ball Size
     public void paintComponent(Graphics g) {
-        //do{
-        int j = 0;
-        if (x == 0) {
 
-            int i = 0;
-            i++;
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.fillOval(x, y, 10, 10);
 
-            //System.out.println(i);
+          //Draws score counter left.
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("serif",Font.ITALIC,15));
+        g.drawString("Score: " + scoreL,10,30);
 
-        }
+          //Draws score counter right.
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("serif",Font.ITALIC,15));
+        g.drawString("Score: " + scoreR,1120,30);
 
-     /* if(j == 1)
-      {
-      	System.exit(0);
-      }*/
-
-        //Ball Speed + Collision with screen;
-        if (x == 100) {
-
-            j++;
-        }
-
-
-        if (x < 0) {
-            dx = 2;
-        }
+          //Ball collision with screen and speed.
+        if (x < 0)
+            dx = 3;
 
         if (x >= getWidth())
-            dx = -2;
+            dx = -3;
 
         if (y < 0)
-            dy = 2;
-
+            dy = 3;
         if (y >= getHeight())
-            dy = -2;
+            dy = -3;
 
         x += dx;
         y += dy;
 
+        //Adds +1 to score counter.
+        if(y > 850) {
+            scoreL++;
+        }
 
-        super.paintComponent(g);
-        g.fillOval(x, y, 10, 10);
+        if(y < 0) {
+            scoreR++;
+        }
 
+        if( scoreL > 6 || scoreR > 6) {
+         //fme.setVisible(false);
+         //timer.stop();
+            // JOptionPane.showMessageDialog(null,winnerText.toString(),"Congratulations!",JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+/*    private boolean collision() {
+
+        return PongUI.UserPad.getBounds().intersects(getBounds());
+    }*/
+
+
+  /*  public void collision(UserPad userPad)
+    {
+
+        if(this.x > userPad.getX() && this.x < userPad.getX() + userPad.getWidth())
+        {
+           if(this.y > userPad.getY() && this.y < userPad.getY() + userPad.getHeight())
+           {
+               //Collision
+               System.exit(0);
+           }
+
+        }*/
     }
 
 
-//NA  Double Buffer image;
 
-    /* public static void main(String[] args) {
-
-        //UserPad p = new UserPad();
-        Ball b = new Ball();
-
-        JFrame frame = new JFrame("Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.add(p);
-        frame.add(b);
-        frame.setSize(1200, 900);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        //timer.start();
-        b.timer.start(); */
-}
