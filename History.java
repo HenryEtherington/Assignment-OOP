@@ -6,7 +6,7 @@ public interface History   {
 
     //History
 
-    String hText = "Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics." +
+    String historyText = "Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics." +
             "\nThe game was originally manufactured by Atari, which released it in 1972. Allan Alcorn created Pong as a training exercise" +
             "\nassigned to him by Atari co-founder Nolan Bushnell. Bushnell based the idea on an electronic ping-pong game included in" +
             "\nthe Magnavox Odyssey, which later resulted in a lawsuit against Atari. Surprised by the quality of Alcorn's work, Bushnell" +

@@ -6,7 +6,7 @@ public interface Instructions   {
 
     //Controls
 
-    String cText = "Controls:" +
+    String instructionsText = "Controls:" +
             "\nUP Arrow to move up" +
             "\nDOWN Arrow to move down";
 }

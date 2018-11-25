@@ -1,8 +1,20 @@
+//Main.java
+/*The class Main asks the a user name, validates whether or not it contains letters
+and display a welcome message if it contains only letters or an error message if it
+contains invalid symbols such as numbers or an asterisk. It then asks the user if they
+would like to continue, exiting the program if they press cancel. It continues to the games
+main menu if the cancel button is not pressed. From there the play button allows access
+to the game through links to Controller java class, the instructions button allows the
+user to view the controls of the game thorough link to the Instructions java class and the
+exit button quits the program after executing a goodbye message for the user.
+@author Henry Etherington */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-//import javax.swing.text.*;
+  //UNUSED CODE FOR limiting the number of characters in a JTextField
+  //import javax.swing.text.*;
 import java.util.regex.Pattern;
 
 public class Main extends JPanel implements ActionListener, History, Instructions {
@@ -10,9 +22,8 @@ public class Main extends JPanel implements ActionListener, History, Instruction
     private JButton play, instructions, history, exit;
     private String name;
 
-    //Serves no function.
-    //Required to call other functions.
-
+     //Serves no function.
+     //Required to call other functions.
   public static void main(String[] args){
         Main frm = new Main();
         frm.setVisible(false);
@@ -93,7 +104,10 @@ public class Main extends JPanel implements ActionListener, History, Instruction
         instructions.setBorder(border);
         history.setBorder(border);
         exit.setBorder(border);
-        // label.setForeground(Color.DARK_GRAY);
+        UIManager.put("OptionPane.background", Color.CYAN);
+        UIManager.put("Panel.background", Color.CYAN);
+        UIManager.put("Button.background", Color.ORANGE);
+         // label.setForeground(Color.DARK_GRAY);
         play.setBackground(Color.ORANGE);
         play.setForeground(Color.BLACK);
         instructions.setBackground(Color.ORANGE);
@@ -102,20 +116,20 @@ public class Main extends JPanel implements ActionListener, History, Instruction
         history.setForeground(Color.BLACK);
         exit.setBackground(Color.ORANGE);
         exit.setForeground(Color.BLACK);
-         //Paints JLabel background . Default is false.
+         //Paints JLabel background. Default is false.
          //https://stackoverflow.com/questions/2380314/how-do-i-set-a-jlabels-background-color/2380339
         label.setOpaque(true);
         frame.getContentPane().setBackground(Color.CYAN);
         //Label style and frame style.
         label.setFont(label.getFont().deriveFont(450.0f));
         frame.setSize(1200,900);
-        //frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setLayout (new FlowLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Asks for user input (non-case sensitive);
-        name = JOptionPane.showInputDialog("Welcome! \nPlease enter your first name:");
+        name = JOptionPane.showInputDialog(null,"Welcome! \nPlease enter your first name:", "Name", JOptionPane.INFORMATION_MESSAGE);
 
         try {
 
@@ -127,37 +141,42 @@ public class Main extends JPanel implements ActionListener, History, Instruction
                             "\nWelcome " + name + " would you like to play my second year project.", "Welcome!", JOptionPane.INFORMATION_MESSAGE);
 
                     if (nme == JOptionPane.YES_OPTION) {
-                        JOptionPane.showMessageDialog(null,"Enjoy handsome.");
+                        JOptionPane.showMessageDialog(null, "Enjoy handsome.");
                         frame.setVisible(true);
-                    } else {
+                    }
+                      else {
+                          //Error handling.
                         System.exit(0);
                     }
                 }
-
-                else  {
-                     int nme = JOptionPane.showConfirmDialog(null, "Welcome " + name + " would you like to play my second year project.", "Welcome!", JOptionPane.INFORMATION_MESSAGE);
+                   else {
+                      int nme = JOptionPane.showConfirmDialog(null, "Welcome " + name + " would you like to play my second year project.", "Welcome!", JOptionPane.INFORMATION_MESSAGE);
 
                     if (nme == JOptionPane.YES_OPTION) {
                         frame.setVisible(true);
-                    } else {
+                    }
+                      else {
+                          //Error handling.
                         System.exit(0);
                     }
                 }
             }
-             else {
 
-                //Prevents No point exception error
+          else if (name.length()==0)
+                  //Error handling.
+                JOptionPane.showMessageDialog(frame,"Sorry but no name was entered. " +
+                                             "Please check all characters are letters and try again.","Try Again!",JOptionPane.ERROR_MESSAGE);
+
+
+           else
+                  //Error handling.
                 JOptionPane.showMessageDialog(frame,"Sorry but name " + name +
-                                              " was invalid. " + "Please check all characters are letters and try again.","Try Again!",JOptionPane.ERROR_MESSAGE);
+                                              "was invalid. " + "Please check all characters are letters and try again.","Try Again!",JOptionPane.ERROR_MESSAGE);
+        }
+            catch (Exception e){
+              System.exit(0);
             }
         }
-
-        catch(Exception e) {
-
-            //Prevents No point exception error
-            JOptionPane.showMessageDialog(frame,"Bye!","Come Back Soon",JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
 
 /*Used to get method Pattern
 https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
@@ -169,7 +188,7 @@ Validates data contains letters.*/
 
     public void actionPerformed(ActionEvent e) {
           //Plays game when play button is pressed.
-        
+
         if(e.getSource() == play) {
               //Create subclass in main. /Links Main page to Other classes.
             new Controller();
@@ -178,7 +197,7 @@ Validates data contains letters.*/
           //Shows instructions when instruction button is pressed.
         else if (e.getSource() == instructions) {
               //Example of interface.
-            JOptionPane.showMessageDialog(null,cText.toString(),"Instructions",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,instructionsText.toString(),"Instructions",JOptionPane.INFORMATION_MESSAGE);
         }
 
           //Shows history when history button is pressed.
@@ -186,11 +205,13 @@ Validates data contains letters.*/
               /*History of pong.
               https://en.wikipedia.org/wiki/Pong*/
                 //Example of interface.
-            JOptionPane.showMessageDialog(null,hText.toString(),"History",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,historyText.toString(),"History",JOptionPane.INFORMATION_MESSAGE);
         }
 
-        //Exits program when exit button is pressed /Acts as a fail-safe.
-        else
+        //Exits program when exit button is pressed and display leaving message. /Acts as a fail-safe.
+        else {
+            JOptionPane.showMessageDialog(null, "Bye. Come back soon.", "Bye!", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
+        }
     }
 }
