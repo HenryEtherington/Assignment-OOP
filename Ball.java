@@ -36,6 +36,23 @@ public  class Ball extends Game  implements Winner{
     /*bs.show();
      } */
 
+
+   /*String Data = Ball.summary; //https://www.youtube.com/watch?v=aOJkV-EJBk
+   
+   try {
+   	BufferedWriter = new BufferedWriter(new FileWriter(new File (("C:\\Users\\Harry\\Desktop\\Assignment-OOP\\src\\score.txt");)))
+   	reader.write(Data);
+   	reader.newLine();
+   	reader.close();
+   }
+   
+   catch (Exception E) {
+   	
+   	JOptionPane.showMessageDialog(null,"Error!");
+   	
+   }*/
+
+
     public void paintComponent(Graphics g) {
 
         //Draw ball.
@@ -82,6 +99,24 @@ public  class Ball extends Game  implements Winner{
             System.exit(0);
         }
     }
+    
+  /*  public void actionPerformed(new ActionListener(){
+    	
+    JFileChooser choser= new JFileChooser("C:\\Users\\Harry\\Desktop\\Assignment-OOP\\src\\score.txt");
+    int x = chooser.showOpenDialog(null);
+    if(x == JFileChooser.APPROVE_OPTION) {
+    	
+    	File file = choose.getSelectedFile(); //https://www.youtube.com/watch?v=aUJktV-EJBk
+    	try {
+    		Desktop.getDesktop.open(file);
+    	}
+    	
+    	catch (IOexception EX) {
+    		JOptionPane.showMessageDialog(null,"Error! File not found");
+    		
+    	}
+      }	   	  	
+    }*/
 
  //UNUSED CODE FOR COLLISION. Java Game Tutorial - Pong 07-01: Collision Detection
  // https://www.youtube.com/watch?v=GpM8yvDP21o
